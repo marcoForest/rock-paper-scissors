@@ -75,3 +75,28 @@ test('Check if states are changed with enable disable choices', () => {
     expect(document.getElementById("player1-paper").className).toEqual(CHOICE_DISABLED);
     expect(document.getElementById("player1-scissors").className).toEqual(CHOICE_DISABLED);
 })
+
+test('Check if premium features are activated correctly', () => {
+    const premiumSpan = document.createElement("span");
+    premiumSpan.id = "premium";
+    document.head.appendChild(premiumSpan);
+    const playerDiv = document.createElement(DIV);
+    playerDiv.id = PLAYER1;
+    document.body.appendChild(playerDiv);
+    // activates premium mode
+    IndexFunctions.premiumMode();
+    IndexFunctions.createChoices(playerDiv, PLAYER1, CHOICE_DISABLED);
+    expect(document.getElementById("player1-spock").className).toEqual(CHOICE_DISABLED);
+    expect(document.getElementById("player1-lizard").className).toEqual(CHOICE_DISABLED);
+    expect(document.getElementById("premium").className).toEqual("clicked");
+
+    // cleans div choices
+    IndexFunctions.deleteChoices(PLAYER1);
+
+    // deactivates premium
+    IndexFunctions.premiumMode();
+    IndexFunctions.createChoices(playerDiv, PLAYER1, CHOICE_DISABLED);
+    expect(document.getElementById("player1-spock")).toEqual(null);
+    expect(document.getElementById("player1-lizard")).toEqual(null);
+    expect(document.getElementById("premium").className).toEqual("");
+})

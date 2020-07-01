@@ -39,6 +39,35 @@ header > h1 {
     content:url("../img/back_hover.png");
 }
 
+#premium {
+    position: absolute;
+    top: 5px;
+    right: 0;
+    border: 4px solid #d1fa2d;
+    border-radius: 20%;
+    padding: 20px;
+    margin: auto;
+    transition: all 0.2s ease;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+#premium:hover {
+    cursor: pointer;
+    background: #d1fa2d;
+    border-color: black;
+    color: black;
+}
+
+#premium.clicked {
+    cursor: pointer;
+    background: #d1fa2d;
+    border-color: gold;
+    color: black;
+}
+
 .game-mode {
     display: block;
     text-align: center;

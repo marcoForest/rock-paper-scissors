@@ -12,7 +12,30 @@ const CHOICE_SELECTED = "choice-selected";
 const CHOICE_WINNER = "choice-winner";
 const CHOICE_LOSER = "choice-loser";
 const SEPARATOR = "-";
-const choices = [ROCK, PAPER, SCISSORS];
+const choicesBasic = [ROCK, PAPER, SCISSORS];
+/**
+ * Become premium for the extension pack
+ */
+const SPOCK = "spock";
+const LIZARD = "lizard";
+const choicesPremium = [ROCK, SPOCK, PAPER, LIZARD, SCISSORS];
+var choices = choicesBasic;
+var premium = false;
+
+/**
+ * Enables/disables premium features, Spock and Lizard join the fight
+ */
+function premiumMode() {
+    premium = !premium;
+    if(premium){
+        document.getElementById("premium").className = "clicked";
+        choices = choicesPremium;
+    } else {
+        document.getElementById("premium").className = "";
+        choices = choicesBasic;
+    }
+}
+exports.premiumMode = premiumMode;
 
 /**
  * Logic to determine the winner between two choices
@@ -139,6 +162,7 @@ function modulo(a, b) {
  */
 function switchPanels() {
     document.getElementById("main-menu").style.display = "none";
+    document.getElementById("premium").style.display = "none";
     document.getElementById("game").style.display = "block";
     document.getElementById("back-button").style.display = "block";
     document.getElementById("result-message").innerText = "";
@@ -151,6 +175,7 @@ function addBackButtonListener() {
     document.getElementById("back-button").addEventListener("click", function() {
         document.getElementById("game").style.display = "none";
         document.getElementById("main-menu").style.display = "block";
+        document.getElementById("premium").style.display = "block";
         document.getElementById("back-button").style.display = "none";
         document.getElementById("play").style.display = "none";
         document.getElementById("choice-message").style.display = "none";
@@ -170,6 +195,7 @@ function createChoices(parentDiv, player, className) {
         var choice = document.createElement(DIV);
         choice.className = className;
         choice.id = player + SEPARATOR + item;
+        choice.title = item;
         var img = document.createElement(IMG);
         img.src = "img/" + item + ".png";
         choice.appendChild(img);
