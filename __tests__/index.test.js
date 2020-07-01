@@ -24,24 +24,27 @@ test("Equal choices means a tie", () => {
 /**
  * Tests DOM element's changes
  */
-const { PLAYER1, CHOICE_DISABLED, DIV, ROCK, SCISSORS, CHOICE_WINNER, CHOICE_LOSER, PLAYER2 } = require("../constants/constants");
-test('Check if createChoices creates all elements correctly', () => {
+const { PLAYER1, CHOICE_DISABLED, DIV, ROCK, SCISSORS, CHOICE_WINNER, CHOICE_LOSER, PLAYER2, CHOICE_ENABLED } = require("../constants/constants");
+test('Check if createChoices creates all elements correctly and deleteChoices removes them', () => {
     const playerDiv = document.createElement(DIV);
-    playerDiv.id = "player1";
+    playerDiv.id = PLAYER1;
     document.body.appendChild(playerDiv);
     IndexFunctions.createChoices(playerDiv, PLAYER1, CHOICE_DISABLED);
     expect(playerDiv.childElementCount).toEqual(3);
     expect(document.getElementById("player1-rock").className).toEqual(CHOICE_DISABLED);
     expect(document.getElementById("player1-paper").className).toEqual(CHOICE_DISABLED);
     expect(document.getElementById("player1-scissors").className).toEqual(CHOICE_DISABLED);
+
+    IndexFunctions.deleteChoices(PLAYER1);
+    expect(playerDiv.childElementCount).toEqual(0);
 })
 
 test('Check if winning and losing choices are reflected', () => {
     const player1Div = document.createElement(DIV);
-    player1Div.id = "player1";
+    player1Div.id = PLAYER1;
     document.body.appendChild(player1Div);
     const player2Div = document.createElement(DIV);
-    player2Div.id = "player2";
+    player2Div.id = PLAYER2;
     document.body.appendChild(player2Div);
     IndexFunctions.createChoices(player1Div, PLAYER1, CHOICE_DISABLED);
     expect(player1Div.childElementCount).toEqual(3);
@@ -55,4 +58,20 @@ test('Check if winning and losing choices are reflected', () => {
     expect(document.getElementById("player1-rock").className).toEqual(CHOICE_WINNER);
     expect(document.getElementById("player2-scissors").className).toEqual(CHOICE_LOSER);
     expect(document.getElementById("result-message").innerText).toEqual("player1 wins");
+})
+
+test('Check if states are changed with enable disable choices', () => {
+    const playerDiv = document.createElement(DIV);
+    playerDiv.id = "player1";
+    document.body.appendChild(playerDiv);
+    IndexFunctions.createChoices(playerDiv, PLAYER1, CHOICE_DISABLED);
+    expect(playerDiv.childElementCount).toEqual(3);
+    IndexFunctions.enableChoices(PLAYER1);
+    expect(document.getElementById("player1-rock").className).toEqual(CHOICE_ENABLED);
+    expect(document.getElementById("player1-paper").className).toEqual(CHOICE_ENABLED);
+    expect(document.getElementById("player1-scissors").className).toEqual(CHOICE_ENABLED);
+    IndexFunctions.disableChoices(PLAYER1);
+    expect(document.getElementById("player1-rock").className).toEqual(CHOICE_DISABLED);
+    expect(document.getElementById("player1-paper").className).toEqual(CHOICE_DISABLED);
+    expect(document.getElementById("player1-scissors").className).toEqual(CHOICE_DISABLED);
 })

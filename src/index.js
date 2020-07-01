@@ -186,6 +186,7 @@ function disableChoices(player) {
         document.getElementById(player + SEPARATOR + item).className = CHOICE_DISABLED;
     });
 }
+exports.disableChoices = disableChoices;
 
 /**
  * Enables all choices for a given player
@@ -195,6 +196,7 @@ function enableChoices(player) {
         document.getElementById(player + SEPARATOR + item).className = CHOICE_ENABLED;
     });
 }
+exports.enableChoices = enableChoices;
 
 /**
  * Deletes all choices for a given player
@@ -204,3 +206,4 @@ function deleteChoices(player) {
         document.getElementById(player + SEPARATOR + item).remove();
     });
 }
+exports.deleteChoices = deleteChoices;
