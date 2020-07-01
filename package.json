@@ -1,0 +1,37 @@
+{
+  "name": "rock-paper-scissors",
+  "version": "1.0.0",
+  "description": "Title: Waste an Hour Having Fun\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[\u001b[3~\u001b[3~\u001b[3~\u001b[3~\u001b[3~\u001b[B\u001b[B\u001b[B\u001b[B\u001b[B\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[As a frequent games player, I'd like to play rock, paper, scissors so that I can spend an hour of my day having fun",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "jest",
+    "test:coverage": "npm test -- --coverage",
+    "test:badges": "npm run test:coverage  && jest-coverage-badges"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/marcoForest/rock-paper-scissors.git"
+  },
+  "keywords": [
+    "JavaScript"
+  ],
+  "author": "Marco Forestello",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/marcoForest/rock-paper-scissors/issues"
+  },
+  "homepage": "https://github.com/marcoForest/rock-paper-scissors#readme",
+  "devDependencies": {
+    "jest": "^26.1.0"
+  },
+  "dependencies": {
+    "jest-coverage-badges": "^1.1.2"
+  },
+  "jest": {
+    "coverageReporters": [
+      "json-summary", 
+      "text",
+      "lcov"
+    ]
+  }
+}

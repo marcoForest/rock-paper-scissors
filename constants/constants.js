@@ -1,0 +1,13 @@
+exports.ROCK = 'rock';
+exports.PAPER = 'paper';
+exports.SCISSORS = 'scissors';
+exports.DIV = 'div';
+exports.IMG = 'img';
+exports.PLAYER1 = 'player1';
+exports.PLAYER2 = 'player2';
+exports.TIE = "Tie";
+exports.CHOICE_ENABLED = 'choice-enabled';
+exports.CHOICE_DISABLED = 'choice-disabled';
+exports.CHOICE_SELECTED = 'choice-selected';
+exports.CHOICE_WINNER = 'choice-winner';
+exports.CHOICE_LOSER = 'choice-loser';

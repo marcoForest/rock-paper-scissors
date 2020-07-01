@@ -1,0 +1,49 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Rock, Paper, Scissors</title>
+        <link rel="stylesheet" href="styles/styles.css">
+        <script src="src/index.js"></script>
+    </head>
+
+    <body>
+        <header>
+            <div id="back-button">
+                <img id="back-img" alt="">
+            </div>
+            <h1>Rock, Paper, Scissors</h1>
+        </header>
+
+        <div id="content">
+            <div id="main-menu">
+                <span id="player-vs-pc" class="game-mode" onclick="playerVsPcMode()">Player vs Computer</span>
+                <span id="pc-vs-pc" class="game-mode" onclick="pcVsPcMode()">Computer vs Computer</span>
+            </div>
+
+            <div id="game" style="display: none;">
+                <div class="choices">
+                    <div id="player1" class="grid-container">
+                        <label id="player1-label" class="player-label">Player1</label>
+                    </div>
+
+                    <div id="player2" class="grid-container">
+                        <label id="player2-label" class="player-label">Player2</label>
+                    </div>
+                </div>
+
+                <div id="action">
+                    <p id="choice-message" style="display: none;">Make your move</p>
+                    <span id="play" class="game-mode" onclick="pcVsPcGame()" style="display: none;">Play</span>
+                </div>
+
+                <div class="result">
+                    <p id="result-message"></p>
+                </div>
+
+                <div id="game-actions">
+                    <span id="play" class="game-action">Play</span>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
